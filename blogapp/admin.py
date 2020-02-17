@@ -26,6 +26,7 @@ class ArticalAdmin(admin.ModelAdmin):
     list_editable = ['active']
     list_filter = ['category', 'active', 'timestamp']
     readonly_fields = ['timestamp', 'updated']
+    prepopulated_fields = {"slug": ("title", )}
     list_per_page = 10
     class Meta:
         model = Artical

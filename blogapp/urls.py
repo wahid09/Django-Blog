@@ -22,7 +22,12 @@ from  django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name="home"),
     path('author/<name>', views.getauthor, name="author"),
+    path('artical/<id>', views.getsingle, name="single_post"),
+    path('category_post/<name>', views.getcategory, name="category_post"),
+    path('login', views.getlogin, name="login"),
+    path('logout', views.getlogout, name="logout")
 ]
 
-#if settings.DEBUG:
-    #urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
